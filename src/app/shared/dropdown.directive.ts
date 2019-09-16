@@ -8,14 +8,18 @@ export class DropdownDirective implements OnInit {
 
   private isDropDownListed: boolean;
 
-  @HostListener('click') toggleDropdown() {
-    if (this.isDropDownListed) {
-      this.renderer.removeClass(this.elementRef.nativeElement, 'open');
+  @HostListener('document:click', ['$event']) toggleDropdown(event: Event) {
+    if (this.elementRef.nativeElement.contains(event.target)) {
+      if (this.isDropDownListed) {
+        this.renderer.removeClass(this.elementRef.nativeElement, 'open');
+      } else {
+        this.renderer.addClass(this.elementRef.nativeElement, 'open');
+      }
+      this.isDropDownListed = !this.isDropDownListed;
     } else {
-      this.renderer.addClass(this.elementRef.nativeElement, 'open');
+      this.renderer.removeClass(this.elementRef.nativeElement, 'open');
+      this.isDropDownListed = false;
     }
-
-    this.isDropDownListed = !this.isDropDownListed;
   }
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
@@ -24,5 +28,4 @@ export class DropdownDirective implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
