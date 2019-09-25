@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {RecipeService} from './recipes/recipe.service';
 import {ShoppingListService} from './shopping-list/shoppinglist.service';
+import {ErrorPageComponent} from './error-page/error-page.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import {ShoppingListService} from './shopping-list/shoppinglist.service';
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent]
