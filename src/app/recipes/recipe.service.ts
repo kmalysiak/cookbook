@@ -5,7 +5,7 @@ import {ShoppingListService} from '../shopping-list/shoppinglist.service';
 
 @Injectable()
 export class RecipeService {
-  
+
   private recipes: Recipe[] = [
     new Recipe(
       'A test recipe 1',
@@ -40,16 +40,16 @@ export class RecipeService {
       ])
   ];
 
+  public constructor(private shoppingList: ShoppingListService) {
+
+  }
+
   public getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
 
   public getRecipe(id: number): Recipe {
     return this.recipes[id];
-  }
-
-  public constructor(private shoppingList: ShoppingListService) {
-
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {

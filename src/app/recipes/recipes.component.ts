@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {RecipeService} from './recipe.service';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-recipes',
@@ -9,8 +7,6 @@ import {Subscription} from 'rxjs';
 })
 export class RecipesComponent {
 
-  subs: Subscription;
-
-  constructor(private recipeService: RecipeService) {
+  constructor() {
   }
 }
