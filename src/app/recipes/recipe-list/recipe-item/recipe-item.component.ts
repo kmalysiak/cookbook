@@ -14,9 +14,4 @@ export class RecipeItemComponent {
   constructor(private recipeService: RecipeService) {
 
   }
-
-  onRecipeSelection($event: MouseEvent) {
-    this.recipeService.recipeSelected.next(this.recipe);
-  }
-
 }
