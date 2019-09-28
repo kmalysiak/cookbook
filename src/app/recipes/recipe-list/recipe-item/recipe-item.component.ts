@@ -16,7 +16,7 @@ export class RecipeItemComponent {
   }
 
   onRecipeSelection($event: MouseEvent) {
-    this.recipeService.recipeSelected.emit(this.recipe);
+    this.recipeService.recipeSelected.next(this.recipe);
   }
 
 }
